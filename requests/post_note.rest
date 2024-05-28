@@ -2,6 +2,6 @@ POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-    "content": "Testing the VS REST Client",
+    "content": "Testing the if everything still works",
     "important": false
 }
