@@ -9,10 +9,14 @@ const helper = require('./test_helper')
 
 beforeEach(async () => {
     await Note.deleteMany({})
-    let noteObject = new Note(helper.initialNotes[0])
-    await noteObject.save()
-    noteObject = new Note(helper.initialNotes[1])
-    await noteObject.save()
+    console.log('cleared db')
+    
+    helper.initialNotes.forEach(async (note) => {
+      let noteObject = new Note(note)
+      await noteObject.save()
+      console.log('saved note to db')
+    })
+    console.log('setup done')
 })
 
 const api = supertest(app)
